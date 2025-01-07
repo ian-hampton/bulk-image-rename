@@ -19,13 +19,13 @@ IMG_20250107_200904691.jpg
 
 ## Features
 
-* Supports JPEG, PNG, TIFF, WebP, and HEIC files.
 * Rename files based on date created, date digitized, or date modified.
-
+* Supports JPEG, PNG, TIFF, WebP, and HEIC files.
+* Undo function.
 
 ## Installation and Use
 
-For the sake of my sanity, this project makes use of the [exif-py](https://github.com/ianare/exif-py) module. As a result, you must set up a virtual enviroment for this script.
+For the sake of my sanity, this project makes use of the [exif-py](https://github.com/ianare/exif-py) module. As a result, you must set up a virtual enviroment.
 
 1. Get into your directory of choice and clone the repo.
     ```sh
@@ -47,7 +47,7 @@ For the sake of my sanity, this project makes use of the [exif-py](https://githu
     pip install -r requirements.txt
     ```
 
-5. To run this script, run this command in your terminal:
+5. To run the script, run the following command in your terminal:
     ```sh
     python bulk_image_rename.py
     ```
