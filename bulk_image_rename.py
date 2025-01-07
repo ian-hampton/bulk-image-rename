@@ -1,5 +1,8 @@
 import os
+import sys
 
+venv_path = os.path.join(".venv", "Lib", "site-packages")
+sys.path.insert(0, venv_path)
 import exifread
 
 
@@ -16,6 +19,8 @@ def rename_file(option: str, directory_str: str, filename_str: str, tags: dict) 
     Returns:
         None: This function does not return any value.
     """
+
+    datetime = ""
 
     match option:
 
@@ -62,11 +67,11 @@ def main():
         print("3 - DateTime (ModifyDate)")
         print("q - Quit")
         user_choice = input("Select DateTime tag option: ")
-        if user_choice in ["", 1]:
+        if user_choice == "1" or user_choice == "":
             user_choice = "Original"
-        elif user_choice == 2:
+        elif user_choice == "2":
             user_choice = "Digitized"
-        elif user_choice == 3:
+        elif user_choice == "3":
             user_choice = "Modified"
         elif user_choice.lower() in ['q', 'quit']:
             break
