@@ -1,11 +1,20 @@
 # Bulk Image Rename
 
-This is a simple script that renames images in a directory to the date and time they were created.
+This is a simple script that renames all images in a directory to the date/time they were created using their EXIF metadata.
 
-Images are renamed to this format:
+Images are renamed to this pattern: IMG_yyyyMMdd_kkmmssSSS
+
+### Example:
 ```
-IMG_yyyyMMdd_kkmmssSSS.jpeg
+IMG_20210811_200904691.jpg
 ```
+* Year: 2021
+* Month: 08
+* Day: 11
+* Hours: 20
+* Minutes: 09
+* Seconds: 04
+* Miliseconds: 691
 
 
 ## Features
