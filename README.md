@@ -25,7 +25,7 @@ IMG_20250107_200904691.jpg
 
 ## Installation and Use
 
-For my own sanity, this project makes use of the [exif-py](https://github.com/ianare/exif-py) module. As such, running this script requires a virtual enviroment.
+For the sake of my sanity, this project makes use of the [exif-py](https://github.com/ianare/exif-py) module. As a result, you must set up a virtual enviroment for this script.
 
 1. Get into your directory of choice and clone the repo.
     ```sh
