@@ -6,7 +6,7 @@ sys.path.insert(0, venv_path)
 import exifread
 
 
-def rename_file(option: str, directory_str: str, filename_str: str, tags: dict) -> None:
+def rename_file(option: str, directory_str: str, filename_str: str, tags: dict) -> str:
     """
     Renames an image file using its EXIF tags. If desired EXIF data not found, this function will not rename the image file.
 
@@ -17,7 +17,7 @@ def rename_file(option: str, directory_str: str, filename_str: str, tags: dict) 
         tags (dict): Dictionary of EXIF data from file generated using exifread.
 
     Returns:
-        None: This function does not return any value.
+        str: New filename, or old filename if unchanged.
     """
 
     datetime = ""
@@ -55,6 +55,10 @@ def rename_file(option: str, directory_str: str, filename_str: str, tags: dict) 
         new_filepath_str = os.path.join(directory_str, new_filename_str)
         os.rename(old_filepath_str, new_filepath_str)
 
+        return new_filename_str
+    
+    return filename_str
+
 def main():
     
     while True:
@@ -76,6 +80,8 @@ def main():
         elif user_choice.lower() in ['q', 'quit']:
             break
 
+        cache_dict = {}
+
         for filename_str in os.listdir(directory_str):
 
             filepath_str = os.path.join(directory_str, filename_str)
@@ -86,9 +92,18 @@ def main():
                 with open(filepath_str, "rb") as file_handle:
                     tags = exifread.process_file(file_handle, details=False)
 
-                rename_file(user_choice, directory_str, filename_str, tags)
+                new_filename = rename_file(user_choice, directory_str, filename_str, tags)
+                cache_dict[new_filename] = filename_str
 
         print("Done!")
+
+        user_choice = input("Hit enter to finalize new filenames or type UNDO: ")
+        if user_choice.lower() == "undo":
+            for new_filename_str, old_filename_str in cache_dict.items():
+                new_filepath_str = os.path.join(directory_str, new_filename_str)
+                old_filepath_str = os.path.join(directory_str, old_filename_str)
+                os.rename(new_filepath_str, old_filepath_str)
+
         user_choice = input("Would you like to run this script on another directory (Y/n)? ")
         if user_choice.lower() not in ["", "y", "yes"]:
             break
