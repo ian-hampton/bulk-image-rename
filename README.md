@@ -2,7 +2,8 @@
 
 This is a simple Python script that renames all images in a directory to the date/time they were created using their EXIF metadata.
 
-Images are renamed to this format: IMG_yyyyMMdd_kkmmssSSS
+Images are renamed to this format: IMG_yyyyMMdd_kkmmssSSS  
+(see [SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html) for reference)
 
 ### Example:
 ```
@@ -37,7 +38,7 @@ For the sake of my sanity, this project makes use of the [exif-py](https://githu
     python -m venv .venv
     ```
 
-3. Activate your virtual enviroment.
+3. Activate the virtual enviroment.
     ```sh
     source .venv\Scripts\activate
     ```
@@ -47,7 +48,7 @@ For the sake of my sanity, this project makes use of the [exif-py](https://githu
     pip install -r requirements.txt
     ```
 
-5. To run the script, run the following command in your terminal:
+5. Once all this is done, the script can be run in your terminal:
     ```sh
     python bulk_image_rename.py
     ```
