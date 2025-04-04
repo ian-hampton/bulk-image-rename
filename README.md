@@ -30,7 +30,7 @@ For the sake of my sanity, this project makes use of the [exif-py](https://githu
 
 1. Get into your directory of choice and clone the repo.
     ```sh
-   git clone https://github.com/ian-hampton/Bulk-Image-Rename.git
+   git clone https://github.com/ian-hampton/bulk-image-rename.git
    ```
 
 2. Open a terminal and cd into the root folder of your local repo. Create the virtual enviroment.
@@ -40,7 +40,7 @@ For the sake of my sanity, this project makes use of the [exif-py](https://githu
 
 3. Activate the virtual enviroment.
     ```sh
-    source .venv\Scripts\activate
+    .venv\Scripts\activate
     ```
 
 4. Install project requirements.
